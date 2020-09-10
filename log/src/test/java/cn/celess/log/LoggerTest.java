@@ -16,7 +16,6 @@ public class LoggerTest {
     public void debug() {
         Logger.debug("debug");
         new Thread(() -> Logger.debug("debug in  testThread2"), "testThread2").start();
-
     }
 
     @Test

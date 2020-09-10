@@ -34,18 +34,17 @@ public class Logger {
     }
 
     private static void printLog(LoggingEvent event) {
-        StringBuilder sb = new StringBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-        sb.append(sdf.format(new Date(event.timeStamp)));
-        sb.append("\t\t");
-        sb.append(event.getLevel().toString());
-        sb.append("\t[");
-        sb.append(event.getThreadName());
-        sb.append("]\t");
-        sb.append(event.getLoggerName());
-        sb.append(" : ");
-        sb.append(event.getMessage());
-        System.out.println(sb.toString());
+        String sb = sdf.format(new Date(event.timeStamp)) +
+                "\t\t" +
+                event.getLevel().toString() +
+                "\t[" +
+                event.getThreadName() +
+                "]\t" +
+                event.getLoggerName() +
+                " : " +
+                event.getMessage();
+        System.out.println(sb);
     }
 
 }
