@@ -11,5 +11,8 @@
 
     <artifactId>log</artifactId>
 
+    <packaging>jar</packaging>
+
+
 
 </project>
