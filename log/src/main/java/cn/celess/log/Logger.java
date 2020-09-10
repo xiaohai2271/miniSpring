@@ -14,7 +14,6 @@ public class Logger {
 
     public static void debug(String info, Object... arg) {
         printLog(createLoggerEvent(Level.DEBUG, info, arg));
-
     }
 
     public static void info(String info, Object... arg) {
