@@ -10,7 +10,7 @@
     <description>手写spring框架</description>
 
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <dependencies>
   </dependencies>
