@@ -1,5 +1,7 @@
 package cn.celess.mvc;
 
+import cn.celess.mvc.util.ClassScan;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,9 +26,13 @@ public class DispatchServlet extends HttpServlet {
         this.basePath = basePath;
     }
 
+    public DispatchServlet(Class<?> c) {
+        this.basePath = c.getResource("/").getPath();
+    }
+
     @Override
     public void init() throws ServletException {
-
+        ClassScan.scan(basePath);
     }
 
     @Override
