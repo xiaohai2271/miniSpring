@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LoggerTest {
+    Log Logger = new Log(this.getClass());
 
     @Test
     public void trace() {
