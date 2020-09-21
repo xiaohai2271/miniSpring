@@ -10,6 +10,7 @@
     <description>手写spring框架</description>
     <modules>
         <module>log</module>
+        <module>mvc</module>
     </modules>
 
     <properties>
