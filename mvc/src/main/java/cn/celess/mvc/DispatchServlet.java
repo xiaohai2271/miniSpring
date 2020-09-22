@@ -22,6 +22,9 @@ public class DispatchServlet extends HttpServlet {
 
     private String basePath = "";
 
+    public DispatchServlet() {
+    }
+
     public DispatchServlet(String basePath) {
         this.basePath = basePath;
     }
@@ -32,7 +35,7 @@ public class DispatchServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ClassScan.scan(basePath);
+
     }
 
     @Override
@@ -41,6 +44,6 @@ public class DispatchServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println(req.getMethod());
     }
 }
