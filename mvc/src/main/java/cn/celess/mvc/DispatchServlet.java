@@ -1,7 +1,7 @@
 package cn.celess.mvc;
 
-import cn.celess.mvc.util.ClassScan;
-
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -19,23 +19,18 @@ import java.util.Properties;
  */
 public class DispatchServlet extends HttpServlet {
 
-
-    private String basePath = "";
-
     public DispatchServlet() {
-    }
-
-    public DispatchServlet(String basePath) {
-        this.basePath = basePath;
-    }
-
-    public DispatchServlet(Class<?> c) {
-        this.basePath = c.getResource("/").getPath();
     }
 
     @Override
     public void init() throws ServletException {
-
+        String contextConfigLocation = getServletContext().getInitParameter("contextConfigLocation");
+        try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(contextConfigLocation)) {
+            Properties properties = new Properties();
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
